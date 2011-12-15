@@ -1,0 +1,22 @@
+WARNING:tasks.py:Initializing database...
+INFO:tasks.py:new request
+INFO:tasks.py:request finished
+INFO:tasks.py:new request
+INFO:tasks.py:request finished
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+WARNING:tasks.py:Initializing database...
+INFO:tasks.py:new request
+INFO:tasks.py:request finished
+INFO:tasks.py:new request
+INFO:tasks.py:request finished
+INFO:tasks.py:new request
+INFO:tasks.py:request finished
+INFO:tasks.py:new request
+INFO:tasks.py:request finished
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped

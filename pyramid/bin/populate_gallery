@@ -1,0 +1,9 @@
+#!/Users/bennihepp/code/playground/pyramid/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'gallery==0.0','console_scripts','populate_gallery'
+__requires__ = 'gallery==0.0'
+import sys
+from pkg_resources import load_entry_point
+
+sys.exit(
+   load_entry_point('gallery==0.0', 'console_scripts', 'populate_gallery')()
+)

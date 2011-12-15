@@ -1,0 +1,5 @@
+      [paste.app_factory]
+      main = image_upload:main
+      [console_scripts]
+      populate_image_upload = image_upload.scripts.populate:main
+      
