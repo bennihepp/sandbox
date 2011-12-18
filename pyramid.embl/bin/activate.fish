@@ -27,7 +27,7 @@ end
 # unset irrelavent variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/bennihepp/code/playground/pyramid"
+set -gx VIRTUAL_ENV "/g/pepperkok/hepp/code/playground/pyramid.embl"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
