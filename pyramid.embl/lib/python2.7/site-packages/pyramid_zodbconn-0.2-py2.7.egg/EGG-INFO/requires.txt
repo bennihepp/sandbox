@@ -1,0 +1,3 @@
+pyramid
+zodburi
+ZODB3>=3.10

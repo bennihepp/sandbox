@@ -16,8 +16,6 @@ gallery.egg-info/entry_points.txt
 gallery.egg-info/not-zip-safe
 gallery.egg-info/requires.txt
 gallery.egg-info/top_level.txt
-gallery/scripts/__init__.py
-gallery/scripts/populate.py
 gallery/static/favicon.ico
 gallery/static/footerbg.png
 gallery/static/headerbg.png

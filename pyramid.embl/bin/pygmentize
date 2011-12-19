@@ -4,6 +4,7 @@ __requires__ = 'Pygments==1.4'
 import sys
 from pkg_resources import load_entry_point
 
-sys.exit(
-   load_entry_point('Pygments==1.4', 'console_scripts', 'pygmentize')()
-)
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('Pygments==1.4', 'console_scripts', 'pygmentize')()
+    )

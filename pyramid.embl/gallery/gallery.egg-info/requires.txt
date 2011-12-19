@@ -1,6 +1,5 @@
 pyramid
-SQLAlchemy
-transaction
+pyramid_zodbconn
 pyramid_tm
 pyramid_debugtoolbar
-zope.sqlalchemy
+ZODB3

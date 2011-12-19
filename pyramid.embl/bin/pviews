@@ -1,9 +1,10 @@
 #!/g/pepperkok/hepp/code/playground/pyramid.embl/bin/python
-# EASY-INSTALL-ENTRY-SCRIPT: 'pyramid==1.3a2','console_scripts','pviews'
-__requires__ = 'pyramid==1.3a2'
+# EASY-INSTALL-ENTRY-SCRIPT: 'pyramid==1.3a1','console_scripts','pviews'
+__requires__ = 'pyramid==1.3a1'
 import sys
 from pkg_resources import load_entry_point
 
-sys.exit(
-   load_entry_point('pyramid==1.3a2', 'console_scripts', 'pviews')()
-)
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('pyramid==1.3a1', 'console_scripts', 'pviews')()
+    )

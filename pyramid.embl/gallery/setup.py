@@ -1,5 +1,4 @@
 import os
-import sys
 
 from setuptools import setup, find_packages
 
@@ -9,15 +8,11 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires = [
     'pyramid',
-    'SQLAlchemy',
-    'transaction',
+    'pyramid_zodbconn',
     'pyramid_tm',
     'pyramid_debugtoolbar',
-    'zope.sqlalchemy',
+    'ZODB3',
     ]
-
-if sys.version_info[:3] < (2,5,0):
-    requires.append('pysqlite')
 
 setup(name='gallery',
       version='0.0',
@@ -32,17 +27,16 @@ setup(name='gallery',
       author='',
       author_email='',
       url='',
-      keywords='web wsgi bfg pylons pyramid',
+      keywords='web pylons pyramid',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
-      test_suite='gallery',
       install_requires = requires,
+      tests_require= requires,
+      test_suite="gallery",
       entry_points = """\
       [paste.app_factory]
       main = gallery:main
-      [console_scripts]
-      populate_gallery = gallery.scripts.populate:main
       """,
       )
 

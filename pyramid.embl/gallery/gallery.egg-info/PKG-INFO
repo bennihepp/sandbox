@@ -7,19 +7,6 @@ Author: UNKNOWN
 Author-email: UNKNOWN
 License: UNKNOWN
 Description: gallery README
-        ==================
-        
-        Getting Started
-        ---------------
-        
-        - cd <directory containing this file>
-        
-        - $venv/bin/python setup.py develop
-        
-        - $venv/bin/populate_gallery development.ini
-        
-        - $venv/bin/pserve development.ini
-        
         
         
         0.0
@@ -27,7 +14,7 @@ Description: gallery README
         
         -  Initial version
         
-Keywords: web wsgi bfg pylons pyramid
+Keywords: web pylons pyramid
 Platform: UNKNOWN
 Classifier: Programming Language :: Python
 Classifier: Framework :: Pylons
