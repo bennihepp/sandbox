@@ -1,15 +1,25 @@
 import unittest
-import transaction
 
 from pyramid import testing
 
 from ..models import (
-    DBSession,
-    Base,
-    UserModel,
-    AlbumModel,
-    PictureModel,
+    User,
+    Album,
+    Picture,
     )
+
+#class ViewTests(unittest.TestCase):
+#    def setUp(self):
+#        self.config = testing.setUp()
+#
+#    def tearDown(self):
+#        testing.tearDown()
+#
+#    def test_my_view(self):
+#        from .views import my_view
+#        request = testing.DummyRequest()
+#        info = my_view(request)
+#        self.assertEqual(info['project'], 'gallery')
 
 class TestModels(unittest.TestCase):
 

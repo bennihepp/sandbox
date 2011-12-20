@@ -1,28 +1,18 @@
-from . import *
+import datetime
 
-class PictureModel(Base):
-    __tablename__ = 'pictures'
+from persistent import Persistent
+from persistent.mapping import PersistentMapping
 
-    id = Column(Integer, primary_key=True)
-    display_url = Column(Text)
-    original_url = Column(Text)
-    thumbnail_url = Column(Text)
-    name = Column(Text)
-    description = Column(Text)
-    album_id = Column(None, ForeignKey("albums.id"))
-    #location = Column(Text)
-    #date = Column(DateTime)
-
-    #album = relationship("AlbumModel", backref=backref("pictures", order_by=id))
-
-    def __init__(self, display_url, original_url=None, thumbnail_url=None,
-                 name=None, description=None, album_id=None):
+class Picture(Persistent):
+    def __init__(self, name, display_url, original_url=None,
+                 thumbnail_url=None, description=None,
+                 location=None, date=datetime.datetime.now(),
+                 parent=None):
+        self.__name__ = name
+        self.__parent__ = parent
         self.display_url = display_url
         self.original_url = original_url
         self.thumbnail_url = thumbnail_url
-        self.name = name
         self.description = description
-        self.album_id = album_id
-        #self.location = location
-        #self.date = date
-
+        self.location = location
+        self.date = date
