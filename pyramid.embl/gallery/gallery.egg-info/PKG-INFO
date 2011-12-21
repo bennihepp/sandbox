@@ -14,7 +14,7 @@ Description: gallery README
         
         -  Initial version
         
-Keywords: web pylons pyramid
+Keywords: web pyramid pylons
 Platform: UNKNOWN
 Classifier: Programming Language :: Python
 Classifier: Framework :: Pylons

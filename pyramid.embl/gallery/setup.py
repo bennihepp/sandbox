@@ -8,11 +8,14 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires = [
     'pyramid',
+    'pyramid_debugtoolbar',
     'pyramid_zodbconn',
     'pyramid_tm',
-    'pyramid_debugtoolbar',
     'ZODB3',
-    ]
+    #'transaction',
+    #'zope.sqlalchemy',
+    #'SQLAlchemy',
+]
 
 setup(name='gallery',
       version='0.0',
@@ -27,12 +30,12 @@ setup(name='gallery',
       author='',
       author_email='',
       url='',
-      keywords='web pylons pyramid',
+      keywords='web pyramid pylons',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
-      install_requires = requires,
-      tests_require= requires,
+      install_requires=requires,
+      tests_require=requires,
       test_suite="gallery",
       entry_points = """\
       [paste.app_factory]

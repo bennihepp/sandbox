@@ -6,7 +6,6 @@ production.ini
 setup.cfg
 setup.py
 gallery/__init__.py
-gallery/models.py
 gallery/tests.py
 gallery/views.py
 gallery.egg-info/PKG-INFO
