@@ -1,0 +1,275 @@
+Metadata-Version: 1.0
+Name: pyramid
+Version: 1.3a3
+Summary: The Pyramid web application development framework, a Pylons project
+Home-page: http://pylonsproject.org
+Author: Chris McDonough, Agendaless Consulting
+Author-email: pylons-devel@googlegroups.com
+License: BSD-derived (http://www.repoze.org/LICENSE.txt)
+Description: Pyramid
+        =======
+        
+        Pyramid is a small, fast, down-to-earth, open source Python web application
+        development framework. It makes real-world web application development and
+        deployment more fun, more predictable, and more productive.
+        
+        Pyramid is produced by the `Pylons Project <http://pylonsproject.org/>`_.
+        
+        Support and Documentation
+        -------------------------
+        
+        See the `Pylons Project website <http://pylonsproject.org/>`_ to view
+        documentation, report bugs, and obtain support.
+        
+        License
+        -------
+        
+        Pyramid is offered under the BSD-derived `Repoze Public License
+        <http://repoze.org/license.html>`_.
+        
+        Authors
+        -------
+        
+        Pyramid is made available by `Agendaless Consulting <http://agendaless.com>`_
+        and a team of contributors.
+        
+        
+        
+        1.3a3 (2011-12-21)
+        ==================
+        
+        Features
+        --------
+        
+        - Added a ``prequest`` script (along the lines of ``paster request``).  It is
+          documented in the "Command-Line Pyramid" chapter in the section entitled
+          "Invoking a Request".
+        
+        - Add undocumented ``__discriminator__`` API to derived view callables.
+          e.g. ``adapters.lookup(...).__discriminator__(context, request)``.  It will
+          be used by superdynamic systems that require the discriminator to be used
+          for introspection after manual view lookup.
+        
+        Bug Fixes
+        ---------
+        
+        - Normalized exit values and ``-h`` output for all ``p*`` scripts
+          (``pviews``, ``proutes``, etc).
+        
+        Documentation
+        -------------
+        
+        - Added a section named "Making Your Script into a Console Script" in the
+          "Command-Line Pyramid" chapter.
+        
+        - Removed the "Running Pyramid on Google App Engine" tutorial from the main
+          docs.  It survives on in the Cookbook
+          (http://docs.pylonsproject.org/projects/pyramid_cookbook/en/latest/gae.html).
+          Rationale: it provides the correct info for the Python 2.5 version of GAE
+          only, and this version of Pyramid does not support Python 2.5.
+        
+        1.3a2 (2011-12-14)
+        ==================
+        
+        Features
+        --------
+        
+        - New API: ``pyramid.view.view_defaults``. If you use a class as a view, you
+          can use the new ``view_defaults`` class decorator on the class to provide
+          defaults to the view configuration information used by every
+          ``@view_config`` decorator that decorates a method of that class.  It also
+          works against view configurations involving a class made imperatively.
+        
+        - Added a backwards compatibility knob to ``pcreate`` to emulate ``paster
+          create`` handling for the ``--list-templates`` option.
+        
+        - Changed scaffolding machinery around a bit to make it easier for people who
+          want to have extension scaffolds that can work across Pyramid 1.0.X, 1.1.X,
+          1.2.X and 1.3.X.  See the new "Creating Pyramid Scaffolds" chapter in the
+          narrative documentation for more info.
+        
+        Documentation
+        -------------
+        
+        - Added documentation to "View Configuration" narrative documentation chapter
+          about ``view_defaults`` class decorator.
+        
+        - Added API docs for ``view_defaults`` class decorator.
+        
+        - Added an API docs chapter for ``pyramid.scaffolds``.
+        
+        - Added a narrative docs chapter named "Creating Pyramid Scaffolds".
+        
+        Backwards Incompatibilities
+        ---------------------------
+        
+        - The ``template_renderer`` method of ``pyramid.scaffolds.PyramidScaffold``
+          was renamed to ``render_template``.  If you were overriding it, you're a
+          bad person, because it wasn't an API before now.  But we're nice so we're
+          letting you know.
+        
+        1.3a1 (2011-12-09)
+        ==================
+        
+        Features
+        --------
+        
+        - Python 3.2 compatibility.
+        
+        - New ``pyramid.compat`` module and API documentation which provides Python
+          2/3 straddling support for Pyramid add-ons and development environments.
+        
+        - A ``mako.directories`` setting is no longer required to use Mako templates
+          Rationale: Mako template renderers can be specified using an absolute asset
+          spec.  An entire application can be written with such asset specs,
+          requiring no ordered lookup path.
+        
+        - ``bpython`` interpreter compatibility in ``pshell``.  See the "Command-Line
+          Pyramid" narrative docs chapter for more information.
+        
+        - Added ``get_appsettings`` API function to the ``pyramid.paster`` module.
+          This function returns the settings defined within an ``[app:...]`` section
+          in a PasteDeploy ini file.
+        
+        - Added ``setup_logging`` API function to the ``pyramid.paster`` module.
+          This function sets up Python logging according to the logging configuration
+          in a PasteDeploy ini file.
+        
+        - Configuration conflict reporting is reported in a more understandable way
+          ("Line 11 in file..." vs. a repr of a tuple of similar info).
+        
+        - A configuration introspection system was added; see the narrative
+          documentation chapter entitled "Pyramid Configuration Introspection" for
+          more information.  New APIs: ``pyramid.registry.Introspectable``,
+          ``pyramid.config.Configurator.introspector``,
+          ``pyramid.config.Configurator.introspectable``,
+          ``pyramid.registry.Registry.introspector``.
+        
+        - Allow extra keyword arguments to be passed to the
+          ``pyramid.config.Configurator.action`` method.
+        
+        - New APIs: ``pyramid.path.AssetResolver`` and
+          ``pyramid.path.DottedNameResolver``.  The former can be used to resolve
+          asset specifications, the latter can be used to resolve dotted names to
+          modules or packages.
+        
+        Bug Fixes
+        ---------
+        
+        - Make test suite pass on 32-bit systems; closes #286.  closes #306.
+          See also https://github.com/Pylons/pyramid/issues/286
+        
+        - The ``pryamid.view.view_config`` decorator did not accept a ``match_params``
+          predicate argument.  See https://github.com/Pylons/pyramid/pull/308
+        
+        - The AuthTktCookieHelper could potentially generate Unicode headers
+          inappropriately when the ``tokens`` argument to remember was used.  See 
+          https://github.com/Pylons/pyramid/pull/314.
+        
+        - The AuthTktAuthenticationPolicy did not use a timing-attack-aware string
+          comparator.  See https://github.com/Pylons/pyramid/pull/320 for more info.
+        
+        - The DummySession in ``pyramid.testing`` now generates a new CSRF token if
+          one doesn't yet exist.
+        
+        - ``request.static_url`` now generates URL-quoted URLs when fed a ``path``
+          argument which contains characters that are unsuitable for URLs.  See
+          https://github.com/Pylons/pyramid/issues/349 for more info.
+        
+        - Prevent a scaffold rendering from being named ``site`` (conflicts with
+          Python internal site.py).
+        
+        - Support for using instances as targets of the ``pyramid.wsgi.wsgiapp`` and
+          ``pryramid.wsgi.wsgiapp2`` functions.
+          See https://github.com/Pylons/pyramid/pull/370 for more info.
+        
+        Backwards Incompatibilities
+        ---------------------------
+        
+        - Pyramid no longer runs on Python 2.5 (which includes the most recent
+          release of Jython and the Python 2.5 version of GAE as of this writing).
+        
+        - The ``paster`` command is no longer the documented way to create projects,
+          start the server, or run debugging commands.  To create projects from
+          scaffolds, ``paster create`` is replaced by the ``pcreate`` console script.
+          To serve up a project, ``paster serve`` is replaced by the ``pserve``
+          console script.  New console scripts named ``pshell``, ``pviews``,
+          ``proutes``, and ``ptweens`` do what their ``paster <commandname>``
+          equivalents used to do.  Rationale: the Paste and PasteScript packages do
+          not run under Python 3.
+        
+        - The default WSGI server run as the result of ``pserve`` from newly rendered
+          scaffolding is now the ``wsgiref`` WSGI server instead of the
+          ``paste.httpserver`` server.  Rationale: Rationale: the Paste and
+          PasteScript packages do not run under Python 3.
+        
+        - The ``pshell`` command (see "paster pshell") no longer accepts a
+          ``--disable-ipython`` command-line argument.  Instead, it accepts a ``-p``
+          or ``--python-shell`` argument, which can be any of the values ``python``,
+          ``ipython`` or ``bpython``.
+        
+        - Removed the ``pyramid.renderers.renderer_from_name`` function.  It has been
+          deprecated since Pyramid 1.0, and was never an API.
+        
+        - To use ZCML with versions of Pyramid >= 1.3, you will need ``pyramid_zcml``
+          version >= 0.8 and ``zope.configuration`` version >= 3.8.0.  The
+          ``pyramid_zcml`` package version 0.8 is backwards compatible all the way to
+          Pyramid 1.0, so you won't be warned if you have older versions installed
+          and upgrade Pyramid "in-place"; it may simply break instead.
+        
+        Dependencies
+        ------------
+        
+        - Pyramid no longer depends on the ``zope.component`` package, except as a
+          testing dependency.
+        
+        - Pyramid now depends on a zope.interface>=3.8.0, WebOb>=1.2dev,
+          repoze.lru>=0.4, zope.deprecation>=3.5.0, translationstring>=0.4 (for
+          Python 3 compatibility purposes).  It also, as a testing dependency,
+          depends on WebTest>=1.3.1 for the same reason.
+        
+        - Pyramid no longer depends on the Paste or PasteScript packages.
+        
+        Documentation
+        -------------
+        
+        - The SQLAlchemy Wiki tutorial has been updated.  It now uses
+          ``@view_config`` decorators and an explicit database population script.
+        
+        - Minor updates to the ZODB Wiki tutorial.
+        
+        - A narrative documentation chapter named "Extending Pyramid Configuration"
+          was added; it describes how to add a new directive, and how use the
+          ``pyramid.config.Configurator.action`` method within custom directives.  It
+          also describes how to add introspectable objects.
+        
+        - A narrative documentation chapter named "Pyramid Configuration
+          Introspection" was added.  It describes how to query the introspection
+          system.
+        
+        Scaffolds
+        ---------
+        
+        - Rendered scaffolds have now been changed to be more relocatable (fewer
+          mentions of the package name within files in the package).
+        
+        - The ``routesalchemy`` scaffold has been renamed ``alchemy``, replacing the
+          older (traversal-based) ``alchemy`` scaffold (which has been retired).
+        
+        - The ``starter`` scaffold now uses URL dispatch by default.
+        
+        
+Keywords: web wsgi pylons pyramid
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Framework :: Pylons
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: License :: Repoze Public License

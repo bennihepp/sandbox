@@ -1,0 +1,70 @@
+Metadata-Version: 1.0
+Name: pyramid-handlers
+Version: 0.4
+Summary: Pyramid handlers emulate Pylons 1 controllers
+Home-page: http://docs.pylonsproject.org
+Author: Chris McDonough, Agendaless Consulting
+Author-email: pylons-devel@googlegroups.com
+License: BSD-derived (http://www.repoze.org/LICENSE.txt)
+Description: ``pyramid_handlers``
+        ====================
+        
+        ``pyramid_handlers`` is a package which allows Pyramid to largely emulate the
+        functionality of Pylons 1 "controllers".  Handlers are a synthesis of
+        Pyramid *url dispatch* and method introspection of a view class that makes it
+        easier to create bundles of view logic which reacts to particular route
+        patterns.
+        
+        See `http://docs.pylonsproject.org/projects/pyramid_handlers/dev/
+        <http://docs.pylonsproject.org/projects/pyramid_handlers/dev/>`_ for
+        detailed documentation.
+        
+        
+        
+        0.4 (2011-11-25)
+        ----------------
+        
+        - Add ``pyramid.handlers.method_name_xformer`` setting, which allows the view
+          associated with a handler action to match when a converted action name is
+          found in the URL (as opposed to the original method name).  See this
+          version's docs for more info.
+        
+        - Use submodule for docs theme.
+        
+        - Modify tox testing scheme.
+        
+        0.3 (2011-08-24)
+        ----------------
+        
+        - Using ``None`` as a pattern is no longer permitted in a call to
+          ``add_handler``.  This is for compatibility with an upcoming Pyramid "route
+          groups" feature.
+        
+        0.2 (2011-07-22)
+        ----------------
+        
+        - Fix include example in docs.
+        
+        - Add example of ``__action_decorator__`` in documentation.
+        
+        - Drop install dependency on pyramid_zcml.
+        
+        - Add a tox.ini for Jenkins testing.
+        
+        - Fix tests for Pyramid 1.1.
+        
+        0.1 (2011-01-18)
+        ----------------
+        
+        - Initial release, broken out of Pyramid core.
+        
+        
+        
+Keywords: web wsgi pylons pyramid
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Framework :: Pylons
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: License :: Repoze Public License
