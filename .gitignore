@@ -5,8 +5,6 @@ jquery
 
 .DS_Store
 
-*.py[co]
-
 # Packages
 *.egg
 *.egg-info
